@@ -1,0 +1,57 @@
+#include <SPI.h>
+#include <MFRC522.h>
+#include <TM1637Display.h>
+
+#define RST_PIN 9
+#define SS_PIN 10
+#define CLK 2
+#define DIO 3
+#define BUZZER_PIN 7
+#define JOY_X A0
+#define JOY_Y A1
+
+MFRC522 rfid(SS_PIN, RST_PIN);
+TM1637Display display(CLK, DIO);
+const byte allowedUID[] = {0xDE, 0xAD, 0xBE, 0xEF};
+bool rfidScanned = false;
+
+void setup() {
+    Serial.begin(9600);
+    SPI.begin();
+    rfid.PCD_Init();
+    display.setBrightness(0x0f);
+    pinMode(BUZZER_PIN, OUTPUT);
+}
+
+void loop() {
+    if (!rfidScanned && rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
+        bool authorized = true;
+        for (byte i = 0; i < rfid.uid.size; i++) {
+            if (rfid.uid.uidByte[i] != allowedUID[i]) {
+                authorized = false;
+            }
+        }
+        if (authorized) {
+            rfidScanned = true;
+            display.showNumberDec(1234);
+            tone(BUZZER_PIN, 1000, 500);
+            delay(1000);
+        } 
+else {
+            tone(BUZZER_PIN, 500, 500);
+        }
+        rfid.PICC_HaltA();
+    }
+
+    if (rfidScanned) {
+        int xVal = analogRead(JOY_X);
+        int yVal = analogRead(JOY_Y);
+        if (xVal > 700 && yVal > 700) {
+            display.clear();
+            display.showNumberDec(9999);
+            tone(BUZZER_PIN, 1500, 1000);
+            delay(5000);
+            rfidScanned = false;
+        }
+    }
+}
