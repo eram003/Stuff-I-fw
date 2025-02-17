@@ -26,7 +26,7 @@ GND → GND
 - **Active Buzzer**
 - **Arduino Board**
 
-### Wiring
+### Arddszzsa
 | Component  | Connection |
 |------------|-----------|
 | RFID SS    | D10       |
@@ -36,12 +36,6 @@ GND → GND
 | Display CLK | D2       |
 | Display DIO | D3       |
 | Buzzer     | D7        |
-
-### How to Play
-1. Scan the RFID.
-2. If authorized, a puzzle starts on the display.
-3. Solve the puzzle using the joystick.
-4. Success unlocks access, failure resets the game.
 
 ### Usage
 - Upload `RFID_Joystick_Game.ino` to your Arduino.
@@ -58,7 +52,7 @@ GND → GND
 - **Joystick Module**
 - **Arduino Board**
 
-### Wiring
+### Adrasdfrv
 | Component  | Connection |
 |------------|-----------|
 | Joystick X | A0        |
@@ -85,7 +79,7 @@ GND → GND
 - **1602 LCD Display**
 - **Arduino Board**
 
-### Wiring
+### Ard
 | Sensor     | Connection |
 |------------|-----------|
 | DHT11      | D8        |
@@ -93,18 +87,18 @@ GND → GND
 | LDR        | A1 (with 10kΩ resistor) |
 | LCD        | 7, 6, 5, 4, 3, 2 |
 
-### How It Works
+### Wiki ahh
 - The system continuously reads data from the sensors.
 - The LCD alternates between temperature, humidity, and light readings.
 - Useful for basic environmental monitoring.
 
 ### Usage
-- Upload `Multi_Sensor_Dashboard.ino` to your Arduino.
+- Upload `Multi_Sensor_Dashboard.ino` to your Arduino
 - View real-time sensor data on the LCD.
 
 ---
 
-### Notes
-- Ensure all libraries (`TM1637Display`, `DHT`, `MFRC522`, etc.) are installed.
+### yes
+- make sure the libraries (`TM1637Display`, `DHT`, `MFRC522`, etc.) are installed.
 - Modify the code if needed to adjust thresholds or features.
 
