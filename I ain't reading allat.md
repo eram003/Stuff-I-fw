@@ -1,3 +1,22 @@
+- RC522 RFID module <br/>
+SDA → D10  
+SCK → D13  
+MOSI → D11  
+MISO → D12  
+IRQ → Not connected  
+GND → GND  
+RST → D9  
+3.3V → 3.3V
+  
+- 5V Relay
+Relay IN → D8
+VCC → 5V
+GND → GND
+
+- Jumper wires
+- 9V battery
+- LED
+
 ### Joystick smth bro idk
 
 ### Components
