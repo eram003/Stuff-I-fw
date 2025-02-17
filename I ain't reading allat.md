@@ -1,3 +1,5 @@
+### Game
+
 - RC522 RFID module <br/>
 SDA → D10  
 SCK → D13  
@@ -37,14 +39,10 @@ GND → GND
 | Display DIO | D3       |
 | Buzzer     | D7        |
 
-### Usage
-- Upload `RFID_Joystick_Game.ino` to your Arduino.
-- Monitor the display for game status.
-- Use the joystick to complete the challenge.
 
 ---
 
-## Joystick-RGB Match Game
+## RGB Match
 
 ### Components
 - **RGB LED**
@@ -63,10 +61,6 @@ GND → GND
 | Display CLK | D2       |
 | Display DIO | D3       |
 
-### Usage
-- Upload `Joystick_RGB_Game.ino` to your Arduino.
-- Observe the display for target color values.
-- Use the joystick to adjust the LED color.
 
 ---
 
@@ -91,12 +85,6 @@ GND → GND
 - The system continuously reads data from the sensors.
 - The LCD alternates between temperature, humidity, and light readings.
 - Useful for basic environmental monitoring.
-
-### Usage
-- Upload `Multi_Sensor_Dashboard.ino` to your Arduino
-- View real-time sensor data on the LCD.
-
----
 
 ### yes
 - make sure the libraries (`TM1637Display`, `DHT`, `MFRC522`, etc.) are installed.
