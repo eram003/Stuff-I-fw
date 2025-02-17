@@ -1,0 +1,44 @@
+#include <LiquidCrystal.h>
+#include <DHT.h>
+
+#define DHTPIN 8
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+
+const int lm35Pin = A0;
+const int ldrPin = A1;
+
+void setup() {
+    lcd.begin(16, 2);
+    dht.begin();
+    lcd.print("Dashboard Ready");
+    delay(2000);
+}
+
+void loop() {
+    float temperature = analogRead(lm35Pin) * (5.0 / 1023.0) * 100.0; // LM35
+    float humidity = dht.readHumidity(); // DHT11
+    int lightLevel = analogRead(ldrPin); // LDR
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Temp: ");
+    lcd.print(temperature);
+    lcd.print("C");
+
+    lcd.setCursor(0, 1);
+    lcd.print("Hum: ");
+    lcd.print(humidity);
+    lcd.print("%");
+
+    delay(2000);
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Light: ");
+    lcd.print(lightLevel);
+
+    delay(2000);
+}
